@@ -25,9 +25,9 @@ export default function Home() {
       </div>
 
       {/* Books section */}
-      <div className="book">
-        <div className="container">
-          <div>
+      <div className="book flex justify-center">
+        <div className="container w-[95%] flex flex-col justify-center">
+          <div className="grid grid-cols-5 gap-6 text-center">
             {books.map((book) => {
               return <Books key={book._id} book={book} />;
             })}
