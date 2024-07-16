@@ -6,7 +6,6 @@ import Books from "./Books";
 export async function loader() {
   const response = await fetch("http://localhost:5000/books");
   const books = await response.json();
-  console.log(books);
   return { books };
 }
 
@@ -25,15 +24,24 @@ export default function Home() {
       </div>
 
       {/* Books section */}
-      <div className="book flex justify-center">
-        <div className="container w-[95%] flex flex-col justify-center">
-          <div className="grid grid-cols-5 gap-6 text-center">
+      <div className="book w-full flex justify-center">
+        <div className="container w-[95%]">
+            <div className="box grid grid-cols-4 gap-6">
             {books.map((book) => {
               return <Books key={book._id} book={book} />;
             })}
-          </div>
+            </div>
         </div>
       </div>
+      
     </main>
   );
 }
+
+{/* <div className="book flex justify-center">
+        <div className="container w-[95%] ">
+          <div className="grid grid-cols-4 gap-6">
+            
+          </div>
+        </div>
+      </div> */}
