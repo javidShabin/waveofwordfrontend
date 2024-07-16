@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import 'remixicon/fonts/remixicon.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Routes/Root.jsx";
 import ErrorPage from "./Error-page.jsx";
