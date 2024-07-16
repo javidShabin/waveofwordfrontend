@@ -9,8 +9,11 @@ export async function loader() {
   return { books };
 }
 
+
 export default function Home() {
   const { books } = useLoaderData();
+
+
   return (
     <main>
       <div className="w-full h-[400px] overflow-hidden relative">
@@ -28,7 +31,7 @@ export default function Home() {
         <div className="container w-[95%]">
             <div className="box grid grid-cols-4 gap-6">
             {books.map((book) => {
-              return <Books key={book._id} book={book} />;
+              return <Books key={book._id} book={book}/>;
             })}
             </div>
         </div>
@@ -37,11 +40,3 @@ export default function Home() {
     </main>
   );
 }
-
-{/* <div className="book flex justify-center">
-        <div className="container w-[95%] ">
-          <div className="grid grid-cols-4 gap-6">
-            
-          </div>
-        </div>
-      </div> */}

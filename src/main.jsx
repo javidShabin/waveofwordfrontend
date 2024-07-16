@@ -18,6 +18,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: homeLoader
       },
+
     ],
   },
 ]);
