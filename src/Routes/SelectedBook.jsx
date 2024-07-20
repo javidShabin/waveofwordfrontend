@@ -18,7 +18,7 @@ export default function SelectedBook() {
           <div className="flex justify-between items-center">
             <img className="rounded-md w-[230px]" src={book.bookImg} alt="" />
             <div>
-              <h3 className="text-[50px] font-bold">{book.bookName}</h3>
+              <h3 className="text-[50px] font-bold drop-shadow-none">{book.bookName}</h3>
               <h4 className="font-bold">{book.authorName}</h4>
             </div>
           </div>
