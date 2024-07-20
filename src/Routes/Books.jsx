@@ -2,11 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Books({ book }) {
-
-    const addToCart = () => {
-        alert(book._id)
-    }
-    
   return (
     <>
       <div
@@ -21,13 +16,18 @@ export default function Books({ book }) {
             Book: <span className="font-semibold">{book.bookName}</span>
           </h3>
         </div>
+        <div>
+            <Link to={"/favorite"}>
+            <button className="py-1 px-3
+        rounded-md font-medium bg-yellow-400 text-black">check</button>
+            </Link>
         <button
-        onClick={addToCart}
           className={`absolute bottom-2 right-5 py-1 px-3
         rounded-md font-medium bg-yellow-400 text-black`}
         >
           Add fav
         </button>
+        </div>
       </div>
     </>
   );

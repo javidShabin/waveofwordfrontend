@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         path: "/books/:bookId",
         element: <SelectedBook/>,
         loader: selectedBookLoader
-      }
+      },
     ],
   },
 ]);

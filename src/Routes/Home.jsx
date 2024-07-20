@@ -13,7 +13,6 @@ export async function loader() {
 export default function Home() {
   const { books } = useLoaderData();
 
-
   return (
     <main>
       <div className="w-full h-[400px] overflow-hidden relative">
@@ -36,7 +35,6 @@ export default function Home() {
             </div>
         </div>
       </div>
-      
     </main>
   );
 }
