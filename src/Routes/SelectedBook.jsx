@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 export async function loader({ params }) {
   const response = await fetch(`http://localhost:5000/books/${params.bookId}`);
   const book = await response.json();
+  console.log(book)
   return { book };
 }
 
@@ -19,7 +20,7 @@ export default function SelectedBook() {
             <img className="rounded-md w-[230px]" src={book.bookImg} alt="" />
             <div>
               <h3 className="text-[50px] font-bold drop-shadow-none">{book.bookName}</h3>
-              <h4 className="font-bold">{book.authorName}</h4>
+              <Link to={"/"}><h4 className="font-bold">{book.authorName}</h4></Link>
             </div>
           </div>
           <p className="mt-5">{book.paragraph}</p>

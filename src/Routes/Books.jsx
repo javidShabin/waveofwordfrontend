@@ -17,10 +17,6 @@ export default function Books({ book }) {
           </h3>
         </div>
         <div>
-            <Link to={"/favorite"}>
-            <button className="py-1 px-3
-        rounded-md font-medium bg-yellow-400 text-black">check</button>
-            </Link>
         <button
           className={`absolute bottom-2 right-5 py-1 px-3
         rounded-md font-medium bg-yellow-400 text-black`}
