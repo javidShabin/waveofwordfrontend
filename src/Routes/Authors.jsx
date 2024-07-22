@@ -11,7 +11,7 @@ export async function loader() {
 export default function Authors() {
   const { authors } = useLoaderData();
   return (
-    <div>
+    <div className="grid grid-cols-4">
       {authors.map(person => {
         return <SelecAuth key={person._id} person={person}/>
       })}
