@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         loader: homeLoader
       },
       {
-        path: "/about",
+        path: "/author",
         element: <Authors/>,
         loader: authorLoader
       },

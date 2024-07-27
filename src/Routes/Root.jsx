@@ -13,7 +13,7 @@ export default function Root() {
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={"/about"}>About</Link>
+                <Link to={"/author"}>Authors</Link>
               </li>
               <li>
                 <Link to={"/favorite"}>Favorite</Link>
