@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
+import ErrorMsg from "./ErrorMsg";
 
 export default function SignupForm() {
   const {
@@ -7,7 +9,12 @@ export default function SignupForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    axios
+      .post("http://localhost:5000/useres", data)
+      .then((response) => console.log("User signed"))
+      .catch((error) => console.log("ERROR"));
+  };
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -20,10 +27,10 @@ export default function SignupForm() {
         className="mb-2 border border-indigo-600 py-2 rounded-md"
         type="text"
         id="name"
-        {...register("name", { required: true })}
+        {...register("name", { required: true, maxLength: 15 })}
       />
-
-      {errors.name && <span>This field is required</span>}
+      {console.log(errors)}
+      {errors.name && <ErrorMsg type={errors.name.type} field={"Name"} />}
 
       <label htmlFor="email">Email</label>
       <input
@@ -33,17 +40,25 @@ export default function SignupForm() {
         {...register("email", { required: true })}
       />
 
-      {errors.email && <span>This field is required</span>}
+      {errors.email && <ErrorMsg type={errors.email.type} field={"Email"} />}
 
       <label htmlFor="password">Password</label>
       <input
         className="mb-2 border border-indigo-600 py-2 rounded-md"
         type="password"
         id="password"
-        {...register("password", { required: true })}
+        {...register("password", {
+          required: true,
+          pattern: {
+            value:
+              /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/,
+          }
+        })}
       />
 
-      {errors.password && <span>This field is required</span>}
+      {errors.password && (
+        <ErrorMsg type={errors.password.type} field={"password"} />
+      )}
 
       {/* Sign up button */}
       <input
