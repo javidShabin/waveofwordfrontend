@@ -8,6 +8,7 @@ import ErrorPage from "./Error-page.jsx";
 import Home, {loader as homeLoader} from "./Routes/Home.jsx";
 import SelectedBook, {loader as selectedBookLoader} from "./Routes/SelectedBook.jsx";
 import Authors, {loader as authorLoader} from "./Routes/Authors.jsx";
+import SignUp from "./Routes/SignUp.jsx";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <SelectedBook/>,
         loader: selectedBookLoader
       },
+      {
+        path: "/signup",
+        element: <SignUp/>
+      }
     ],
   },
 ]);

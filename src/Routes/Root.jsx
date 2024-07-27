@@ -18,6 +18,9 @@ export default function Root() {
               <li>
                 <Link to={"/favorite"}>Favorite</Link>
               </li>
+              <li>
+                <Link to={"/signup"}>Sign Up</Link>
+              </li>
             </ul>
           </nav>
         </div>
