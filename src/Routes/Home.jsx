@@ -14,6 +14,10 @@ export async function loader() {
 export default function Home() {
   const { books } = useLoaderData();
 
+  const addFavorite = (props) => {
+    alert(props)
+  }
+
   return (
     <main>
       <div className="w-full h-[400px] overflow-hidden relative">
@@ -31,7 +35,7 @@ export default function Home() {
         <div className="container w-[95%]">
             <div className="box grid grid-cols-4 gap-6">
             {books.map((book) => {
-              return <Books key={book._id} book={book}/>;
+              return <Books key={book._id} book={book} addFavorite={addFavorite} />;
             })}
             </div>
         </div>

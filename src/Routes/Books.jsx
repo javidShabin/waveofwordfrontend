@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Books({ book }) {
+export default function Books({ book, addFavorite }) {
   return (
     <>
       <div
@@ -17,7 +17,7 @@ export default function Books({ book }) {
           </h3>
         </div>
         <div>
-        <button
+        <button onClick={()=>{addFavorite(book.bookName)}}
           className={`absolute bottom-2 right-5 py-1 px-3
         rounded-md font-medium bg-yellow-400 text-black`}
         >
