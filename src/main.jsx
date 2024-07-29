@@ -10,7 +10,6 @@ import SelectedBook, {loader as selectedBookLoader} from "./Routes/SelectedBook.
 import Authors, {loader as authorLoader} from "./Routes/Authors.jsx";
 import SignUp from "./Routes/SignUp.jsx";
 
-
 const router = createBrowserRouter([
   {
     path: "/",

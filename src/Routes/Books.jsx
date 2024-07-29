@@ -5,9 +5,9 @@ export default function Books({ book, addFavorite }) {
   return (
     <>
       <div
-        className="shadow-2xl w-[300px] h-[450px] rounded-lg px-4 relative"
+        className="shadow-2xl w-[270px] h-[450px] rounded-lg px-4 relative"
       >
-        <Link to={`/books/${book._id}`}><img className="rounded-lg w-[200px] mx-auto mt-5" src={book.bookImg} /></Link>
+        <Link to={`/books/${book._id}`}><img className="rounded-lg w-[270px] h-[300px] mx-auto mt-5" src={book.bookImg} /></Link>
         <div className="mt-4">
           <h2 className="text-black font-bold">
             Author: <span className="font-semibold">{book.authorName}</span>
@@ -17,7 +17,7 @@ export default function Books({ book, addFavorite }) {
           </h3>
         </div>
         <div>
-        <button onClick={()=>{addFavorite(book.bookName)}}
+        <button onClick={()=>{addFavorite({image: book.bookImg, name: book.bookName})}}
           className={`absolute bottom-2 right-5 py-1 px-3
         rounded-md font-medium bg-yellow-400 text-black`}
         >

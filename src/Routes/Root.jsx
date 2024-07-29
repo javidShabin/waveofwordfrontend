@@ -16,9 +16,6 @@ export default function Root() {
                 <Link to={"/author"}>Authors</Link>
               </li>
               <li>
-                <Link to={"/favorite"}>Favorite</Link>
-              </li>
-              <li>
                 <Link to={"/signup"}>Sign Up</Link>
               </li>
             </ul>

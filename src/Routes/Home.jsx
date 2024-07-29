@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { homeBook } from "../assets";
 import { useLoaderData } from "react-router-dom";
 import Books from "./Books";
-import axios from "axios";
+import AddFav from "../component/AddFav";
 
 export async function loader() {
   const response = await fetch("http://localhost:5000/books");
@@ -10,13 +10,13 @@ export async function loader() {
   return { books };
 }
 
-
 export default function Home() {
+    const [favorites, setFavorites] = useState([])
   const { books } = useLoaderData();
 
   const addFavorite = (props) => {
-    alert(props)
-  }
+    setFavorites([...favorites, props])
+  };
 
   return (
     <main>
@@ -32,12 +32,17 @@ export default function Home() {
 
       {/* Books section */}
       <div className="book w-full flex justify-center">
-        <div className="container w-[95%]">
-            <div className="box grid grid-cols-4 gap-6">
-            {books.map((book) => {
-              return <Books key={book._id} book={book} addFavorite={addFavorite} />;
-            })}
-            </div>
+        <div className="container w-[95%] flex justify-between">
+          <div className="box grid grid-cols-4 gap-6">
+              {books.map((book) => {
+                return (
+                  <Books key={book._id} book={book} addFavorite={addFavorite} />
+                );
+              })}
+          </div>
+          <div>
+            <AddFav favorites={favorites} />
+          </div>
         </div>
       </div>
     </main>
