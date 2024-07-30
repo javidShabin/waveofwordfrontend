@@ -5,7 +5,7 @@ export default function Books({ book, addFavorite }) {
   return (
     <>
       <div
-        className="shadow-2xl w-[270px] h-[450px] rounded-lg px-4 relative"
+        className="shadow-2xl w-[260px] h-[450px] rounded-lg px-4 relative"
       >
         <Link to={`/books/${book._id}`}><img className="rounded-lg w-[270px] h-[300px] mx-auto mt-5" src={book.bookImg} /></Link>
         <div className="mt-4">

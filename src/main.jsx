@@ -9,6 +9,7 @@ import Home, {loader as homeLoader} from "./Routes/Home.jsx";
 import SelectedBook, {loader as selectedBookLoader} from "./Routes/SelectedBook.jsx";
 import Authors, {loader as authorLoader} from "./Routes/Authors.jsx";
 import SignUp from "./Routes/SignUp.jsx";
+import Login from "./Routes/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp/>
+      },
+      {
+        path: "/login",
+        element: <Login/>
       }
     ],
   },
