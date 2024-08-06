@@ -16,9 +16,10 @@ export default function LoginForm() {
   const dispatch = useDispatch()
 
   const onSubmit = (data) => {
-    axios.post(`http://localhost:5000/auth/login`, data)
+    axios.post(`http://localhost:5000/auth/login`, data, {withCredentials: true})
     .then((response) => {
-        dispatch(changeLoginStatust(false))
+        console.log(response)
+        dispatch(changeLoginStatust(true))
     })
       .catch((error) => console.log(error));
   }

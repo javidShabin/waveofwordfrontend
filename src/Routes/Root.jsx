@@ -1,9 +1,22 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
+import { changeLoginStatust } from "../features/login/loginSlice";
 
 export default function Root() {
     const logged = useSelector(state => state.login.loggedIn)
+    
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        axios.get('http://localhost:5000/auth/verify', {withCredentials: true})
+        .then(response => {
+            dispatch(changeLoginStatust(true))
+        })
+        .catch(error => console.log("Not logged in"))
+    },[])
+
   return (
     <>
       <header className="shadow-lg flex justify-center py-6 w-full z-[999] bg-white sticky top-0 left-0">
@@ -26,6 +39,9 @@ export default function Root() {
               }
             </ul>
           </nav>
+          {logged && <div className="w-10 h-10 aspect-auto-square bg-gray-200 flex flex-col items-center justify-center rounded-full">
+            <span className="">j</span>
+          </div>}
         </div>
       </header>
       <Outlet />
