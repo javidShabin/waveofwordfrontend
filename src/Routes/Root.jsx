@@ -54,10 +54,11 @@ export default function Root() {
         <div className="container w-[90%]">
           <div>
           <h1 className="text-[21px] font-bold">WavesOfWords</h1>
-          <ul className="text-[25px]">
+          <ul className="text-[25px] flex gap-6 cursor-pointer">
             <li><i class="ri-facebook-fill text-blue-700"></i></li>
             <li><i class="ri-instagram-fill text-pink-400"></i></li>
             <li><i class="ri-twitter-fill text-blue-500"></i></li>
+            <li><i class="ri-mail-fill text-red-600"></i></li>
           </ul>
           </div>
         </div>
