@@ -5,17 +5,18 @@ import { Link, Outlet } from "react-router-dom";
 import { changeLoginStatust } from "../features/login/loginSlice";
 
 export default function Root() {
-    const logged = useSelector(state => state.login.loggedIn)
-    
-    const dispatch = useDispatch()
+  const logged = useSelector((state) => state.login.loggedIn);
 
-    useEffect(()=>{
-        axios.get('http://localhost:5000/auth/verify', {withCredentials: true})
-        .then(response => {
-            dispatch(changeLoginStatust(true))
-        })
-        .catch(error => console.log("Not logged in"))
-    },[])
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/auth/verify", { withCredentials: true })
+      .then((response) => {
+        dispatch(changeLoginStatust(true));
+      })
+      .catch((error) => console.log("Not logged in"));
+  }, []);
 
   return (
     <>
@@ -30,22 +31,30 @@ export default function Root() {
               <li>
                 <Link to={"/author"}>Authors</Link>
               </li>
-              {
-                logged ? <li>
-                <Link to={"/logout"}>Logout</Link>
-              </li> : <li>
-                <Link to={"/author"}>Authors</Link>
-              </li>
-              }
+              {logged ? (
+                <li>
+                  <Link to={"/logout"}>Logout</Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to={"/author"}>Authors</Link>
+                </li>
+              )}
             </ul>
           </nav>
-          {logged && <div className="w-10 h-10 aspect-auto-square bg-gray-200 flex flex-col items-center justify-center rounded-full">
-            <span className="">j</span>
-          </div>}
+          {logged && (
+            <div className="w-10 h-10 aspect-auto-square bg-gray-200 flex flex-col items-center justify-center rounded-full">
+              <span className="">j</span>
+            </div>
+          )}
         </div>
       </header>
       <Outlet />
-      <footer></footer>
+      <footer className="w-full flex justify-center items-center">
+        <div className="container w-[90%]">
+          <h1 className="text-[21px] font-bold">WavesOfWords</h1>
+        </div>
+      </footer>
     </>
   );
 }
